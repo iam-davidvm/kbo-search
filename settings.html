@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoek ondernemingsnummer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -15,28 +14,23 @@
 
         <nav>
             <ul>
-                <li class="active"><a href="index.html">Zoeken</a></li>
+                <li><a href="index.html">Zoeken</a></li>
                 <li><a href="history.html">Geschiedenis</a></li>
                 <li><a href="info.html"><i class="fas fa-info-circle"></i></a></li>
-                <li><a href="settings.html"><i class="fas fa-cog"></i></a></li>
+                <li class="active"><a href="settings.html"><i class="fas fa-cog"></i></a></li>
             </ul>
         </nav>
 
         <main>
-            <section class="search container">
-                <button id="search-btn">
-                    Zoeken
-                </button>
-            </section>
-            <section class="results container">
-                <h2>Resultaten:</h2>
-                <ul>
-                    <li><a href="#">dbsa - 0574.264.444</a></li>
-                    <li><a href="#">dbsa - 0472 44 48 52</a></li>
-                    <li><a href="#">dbsa</a></li>
-                </ul>
+            <section class="settings container">
+                <h2>Pas extensie aan</h2>
+                <form>
+                    <label for="regex">Regex:</label>
+                    <input type="text" id="regex" name="regex">
+                    <button>Save</button>
+                </form>
             </section>
         </main>
     </div>
 </body>
-</html>
+</html> 

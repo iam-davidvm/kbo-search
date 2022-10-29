@@ -7,47 +7,44 @@
 }
 
 :root {
-  --clr-pri: red;
-  --clr-whi: white;
+  --clr-dar-pri: hsl(216, 18%, 16%);
+  --clr-dar-sec: hsl(210, 32%, 28%);
+  --clr-lig-pri: hsl(0, 84%, 64%);
+  --clr-off-whi: hsl(255, 29%, 97%);
+}
+
+body {
+  background-color: var(--clr-off-whi);
+  font-family: 'Mukta', sans-serif;
 }
 
 .extension {
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin: 0;
 }
 
 nav {
   width: 100%;
+  background-color: white;
 }
 
 nav ul {
+  margin: 0 10px;
   display: flex;
-  justify-content: stretch;
+  justify-content: space-between;
 }
 
 nav ul li {
   list-style-type: none;
   display: inline-block;
-  width: 100%;
-  padding: 15px 0;
+  padding: 15px 15px;
   text-align: center;
-  background-color: var(--clr-pri);
-  color: var(--clr-whi);
   cursor: pointer;
-  transition: background-color 280ms ease-in-out;
-}
-
-nav ul li + li {
-  border-left: 1px solid var(--clr-whi);
-}
-
-nav ul li:hover,
-nav ul li:focus {
-  background-color: var(--clr-whi);
 }
 
 nav ul li a {
-  color: var(--clr-whi);
+  color: hsla(0, 0%, 0%, 0.4);
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
@@ -55,21 +52,34 @@ nav ul li a {
 }
 
 nav ul li:hover a,
-nav ul li:focus a {
-  color: var(--clr-pri);
+nav ul li:focus a,
+nav ul li a:hover,
+nav ul li a:focus {
+  color: var(--clr-dar-pri);
 }
 
-.search {
+nav ul .active {
+  border-bottom: 2px solid var(--clr-lig-pri);
+}
+
+nav ul .active a {
+  color: var(--clr-dar-pri);
+  pointer-events: none;
+  cursor: default;
+}
+
+.container {
   margin: 20px 10px;
 }
 
 .search button {
   text-transform: uppercase;
-  background-color: var(--clr-whi);
-  border: 3px solid var(--clr-pri);
-  color: var(--clr-pri);
-  border-radius: 1em;
-  padding: 0.8em 1.6em;
+  font-size: 1rem;
+  color: var(--clr-off-whi);
+  border: 3px solid var(--clr-dar-pri);
+  background-color: var(--clr-dar-pri);
+  border-radius: 0.25em;
+  padding: 0.5em 1.4em;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 280ms ease-in-out, color 280ms ease-in-out;
@@ -77,6 +87,74 @@ nav ul li:focus a {
 
 .search button:hover,
 .search button:focus {
-  background-color: var(--clr-pri);
-  color: var(--clr-whi);
+  background-color: var(--clr-off-whi);
+  color: var(--clr-dar-pri);
+}
+
+.container h2 {
+  color: var(--clr-lig-pri);
+}
+
+.history h2 {
+  display: inline-block;
+  width: 90%;
+}
+
+.results ul li,
+.history ul li {
+  list-style-type: none;
+  padding: 0.15em 0;
+}
+
+.results ul li a,
+.history ul li a {
+  color: var(--clr-dar-sec);
+  text-decoration: none;
+}
+
+.results ul li a:hover,
+.results ul li a:focus,
+.history ul li a:hover,
+.history ul li a:focus {
+  color: var(--clr-dar-pri);
+  text-decoration: underline;
+}
+
+.history article {
+  margin: 1em 0;
+}
+
+.history article p {
+  font-weight: 700;
+}
+
+.history button {
+  border: none;
+  background-color: none;
+  cursor: pointer;
+  color: var(--clr-dar-pri);
+  transition: color 280ms ease-in-out;
+}
+
+.history button:hover,
+.history button:focus {
+  color: var(--clr-lig-pri);
+}
+
+.history button i {
+  font-size: 1.125 rem;
+}
+
+.info p + p,
+.info .about {
+  padding-bottom: 1rem;
+}
+
+.info .changes {
+  font-weight: 700;
+  padding-bottom: 0.35rem;
+}
+
+.info ul {
+  padding-left: 1.2em;
 }
