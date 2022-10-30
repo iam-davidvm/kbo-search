@@ -13,19 +13,27 @@ function cleanNumber(numbers) {
   );
 }
 
-function renderMatches(matches) {
-  html =
-    '<h2>Resultaten:</h2><ul>' +
-    matches
-      .map(
-        (match) =>
-          `<li><a href="https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?nummer=${match.replaceAll(
-            '.',
-            '+'
-          )}&actionLu=Zoek" target="_blank">${match}</a></li>`
-      )
-      .join('') +
-    '</ul>';
+function renderMatches(matches, name) {
+  let html = '';
+  if (matches) {
+    html =
+      '<h2>Resultaten:</h2><ul>' +
+      matches
+        .map(
+          (match) =>
+            `<li><a href="https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?nummer=${match.replaceAll(
+              '.',
+              '+'
+            )}&actionLu=Zoek" target="_blank">${name} - ${match}</a></li>`
+        )
+        .join('') +
+      '</ul>';
+  } else {
+    html = `<h2>Resultaten:</h2><ul><li><a href="https://kbopub.economie.fgov.be/kbopub/zoeknaamfonetischform.html?searchWord=${name.replaceAll(
+      ' ',
+      '%20'
+    )}&_oudeBenaming=on&pstcdeNPRP=&postgemeente1=&ondNP=true&_ondNP=on&ondRP=true&_ondRP=on&rechtsvormFonetic=ALL&vest=true&_vest=on&filterEnkelActieve=true&_filterEnkelActieve=on&actionNPRP=Zoek" target="_blank">${name}</a></li><ul>`;
+  }
   const results = document.querySelector('.results');
   results.innerHTML = html;
 }
@@ -39,10 +47,12 @@ btnSearch.addEventListener('click', () => {
       { task: 'kbosearch' },
       function (response) {
         if (!chrome.runtime.lastError) {
-          const content = response.replaceAll(/\\n/g, ' ');
+          const content = response.content.replaceAll(/\\n/g, ' ');
           let matches = searchPage(content);
-          matches = cleanNumber(matches);
-          renderMatches(matches);
+          if (matches) {
+            matches = cleanNumber(matches);
+          }
+          renderMatches(matches, response.info);
         } else {
           console.log('something went wrong');
         }
