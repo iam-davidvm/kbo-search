@@ -7,6 +7,12 @@ function searchPage(pageContent) {
   return pageContent.match(regExp);
 }
 
+function cleanNumber(numbers) {
+  return numbers.map((number) =>
+    number.replaceAll('BE ', '').replaceAll(' ', '.').replaceAll('BE', '')
+  );
+}
+
 btnSearch.addEventListener('click', () => {
   const queryOptions = { active: true, currentWindow: true };
 
@@ -17,7 +23,9 @@ btnSearch.addEventListener('click', () => {
       function (response) {
         if (!chrome.runtime.lastError) {
           const content = response.replaceAll(/\\n/g, ' ');
-          const match = searchPage(content);
+          let match = searchPage(content);
+          console.log(match);
+          match = cleanNumber(match);
           console.log(match);
         } else {
           console.log('something went wrong');
