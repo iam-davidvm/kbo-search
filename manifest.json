@@ -1,12 +1,23 @@
 {
+  "manifest_version": 3,
   "name": "KBO Search",
   "description": "Deze extensie kijkt na of er op de huidige pagina een ondernemingsnummer staat en zorgt dat je deze kan opzoeken via de KBO.",
   "version": "0.1",
-  "manifest_version": 3,
-  "action": {
-    "default_icon": "imgs/temp.png",
-    "default_popup": "index.html"
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_workers": "background.js"
   },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "KBO Search",
+    "default_icon": "imgs/temp.png"
+  },
+  "permissions": ["tabs"],
   "icons": {
     "128": "imgs/temp.png"
   }
