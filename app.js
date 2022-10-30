@@ -13,6 +13,23 @@ function cleanNumber(numbers) {
   );
 }
 
+function renderMatches(matches) {
+  html =
+    '<h2>Resultaten:</h2><ul>' +
+    matches
+      .map(
+        (match) =>
+          `<li><a href="https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?nummer=${match.replaceAll(
+            '.',
+            '+'
+          )}&actionLu=Zoek" target="_blank">${match}</a></li>`
+      )
+      .join('') +
+    '</ul>';
+  const results = document.querySelector('.results');
+  results.innerHTML = html;
+}
+
 btnSearch.addEventListener('click', () => {
   const queryOptions = { active: true, currentWindow: true };
 
@@ -23,10 +40,9 @@ btnSearch.addEventListener('click', () => {
       function (response) {
         if (!chrome.runtime.lastError) {
           const content = response.replaceAll(/\\n/g, ' ');
-          let match = searchPage(content);
-          console.log(match);
-          match = cleanNumber(match);
-          console.log(match);
+          let matches = searchPage(content);
+          matches = cleanNumber(matches);
+          renderMatches(matches);
         } else {
           console.log('something went wrong');
         }
