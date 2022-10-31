@@ -9,9 +9,6 @@
       "js": ["content.js"]
     }
   ],
-  "background": {
-    "service_workers": "background.js"
-  },
   "action": {
     "default_popup": "index.html",
     "default_title": "Ondernemingsnummer zoeken",

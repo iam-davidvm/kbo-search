@@ -6,7 +6,7 @@
 
 ## Links
 
-- [Download](https://www.hetlabovandavid.be/david/ 'Download the extension')
+- [Download](/files/ondernemingsnummer-zoeken.zip 'Download the extension')
 
 <p>Currently the extension is not in the Chrome store yet. You can download the ZIP-file above and install it following <a href="https://bashvlas.com/blog/install-chrome-extension-in-developer-mode/">this manual</a>.</p>
 
