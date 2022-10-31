@@ -33,7 +33,14 @@ function renderMatches(queryStrings, matches, hasONnummer) {
 }
 
 function saveSearch(queryStrings, matches, hasONnummer) {
-  const date = Date.now();
+  // const date = Date.now();
+  const currentdate = new Date();
+  const date =
+    currentdate.getDate() +
+    '/' +
+    (currentdate.getMonth() + 1) +
+    '/' +
+    currentdate.getFullYear();
   const search = {
     queryStrings,
     matches,
