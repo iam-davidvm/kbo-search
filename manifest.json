@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "KBO Search",
-  "description": "Deze extensie kijkt na of er op de huidige pagina een ondernemingsnummer staat en zorgt dat je deze kan opzoeken via de KBO.",
-  "version": "0.1",
+  "name": "Ondernemingsnummer zoeken",
+  "description": "Deze extensie zoekt in de broncode van de huidige pagina naar een Belgisch ondernemingsnummer. Dit gebeurt op basis van patronen en dus zonder artificiële intelligentie :) Op basis van dit ondernemingsnummer wordt een URL gegenereerd naar de KBO-databank om snel meer informatie te vinden over dit bedrijf.",
+  "version": "1.0",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -14,11 +14,11 @@
   },
   "action": {
     "default_popup": "index.html",
-    "default_title": "KBO Search",
-    "default_icon": "imgs/temp.png"
+    "default_title": "Ondernemingsnummer zoeken",
+    "default_icon": "imgs/icon.png"
   },
   "permissions": ["tabs"],
   "icons": {
-    "128": "imgs/temp.png"
+    "128": "imgs/icon.png"
   }
 }
