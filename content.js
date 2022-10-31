@@ -1,8 +1,10 @@
 chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
   if (req.task === 'kbosearch') {
-    let siteName = document
-      .querySelector("meta[property='og:site_name']")
-      .getAttribute('content');
+    let siteName = document.querySelector("meta[property='og:site_name']")
+      ? document
+          .querySelector("meta[property='og:site_name']")
+          .getAttribute('content')
+      : null;
     let URL = window.location.href;
     const ArrayURL = URL.split('//')[1].split('.');
     URL = ArrayURL.length >= 3 ? ArrayURL[1] : ArrayURL[0];

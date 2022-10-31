@@ -129,8 +129,10 @@ nav ul .active a {
   font-weight: 700;
 }
 
+.noresults,
 .history article .noresults {
   color: var(--clr-lig-pri);
+  font-weight: 700;
 }
 
 .history button {

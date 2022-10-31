@@ -83,7 +83,10 @@ btnSearch.addEventListener('click', () => {
           renderMatches(queryStrings, matches, hasONnummer);
           saveSearch(queryStrings, matches, hasONnummer);
         } else {
-          console.log('something went wrong');
+          const results = document.querySelector('.results');
+          const html =
+            '<p class="noresults">Oops, er ging iets fout. Vernieuw de pagina en probeer opnieuw. Mocht het dan nog niet lukken, geef dan de link door van de pagina, zodat ik de extensie kan verbeteren.</p>';
+          results.innerHTML = html;
         }
       }
     );
