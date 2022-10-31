@@ -86,10 +86,13 @@ nav ul .active a {
   transition: background-color 280ms ease-in-out, color 280ms ease-in-out;
 }
 
-.search button:hover,
-.search button:focus {
+.search button:hover {
   background-color: var(--clr-off-whi);
   color: var(--clr-dar-pri);
+}
+
+.search button:focus {
+  outline: 2px solid var(--clr-lig-pri);
 }
 
 .container h2 {
@@ -143,21 +146,32 @@ nav ul .active a {
   transition: color 280ms ease-in-out;
 }
 
-.history button:hover,
-.history button:focus {
+.history button:hover {
   color: var(--clr-lig-pri);
 }
+
+.history button:focus {
+  outline: 2px solid var(--clr-lig-pri);
+}
+
+/* .history button:hover,
+.history button:focus {
+  color: var(--clr-lig-pri);
+} */
 
 .history button i {
   font-size: 1.125 rem;
 }
 
-.info p + p,
-.info .about {
-  padding-bottom: 1rem;
+.info p + p {
+  padding-top: 1rem;
 }
 
-.info .changes {
+.info article {
+  padding-bottom: 1.2rem;
+}
+
+.info .subtitle {
   font-weight: 700;
   padding-bottom: 0.35rem;
 }
