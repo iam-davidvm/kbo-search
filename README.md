@@ -50,6 +50,8 @@ I am pretty proud with the current result, beause it does exactly what I had in 
 
 - Now it works with a 'Ondernemingsnummer' only. I'm thinking about allowing a user to enter his own regular expression that he wants to look for on a page.
 
+- Creating the same extension for multiple browsers.
+
 ## Conclusion
 
 > Although it is a rather simple extension, I think it could be very useful and efficient extension. And it was an interesting project to learn a bit more about Chrome extensions.
