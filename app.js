@@ -13,6 +13,18 @@ function cleanNumber(numbers) {
   );
 }
 
+function validateNumber(numbers) {
+  return numbers.filter((number) => {
+    number = number.replaceAll('.', '');
+    if (
+      (number[0] === '0' || number[0] === '1') &&
+      97 - (parseInt(number.slice(0, 8)) % 97) === parseInt(number.slice(8))
+    ) {
+      return true;
+    }
+  });
+}
+
 function renderMatches(queryStrings, matches, hasONnummer) {
   let html = '';
   if (hasONnummer) {
@@ -67,6 +79,7 @@ btnSearch.addEventListener('click', () => {
           let hasONnummer = true;
           if (matches) {
             matches = cleanNumber(matches);
+            matches = validateNumber(matches);
             queryStrings = [...matches];
             matches = matches.map((match) => `${response.info} - ${match}`);
             queryStrings = queryStrings.map(

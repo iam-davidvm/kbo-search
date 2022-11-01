@@ -153,12 +153,6 @@ nav ul .active a {
 .history button:focus {
   outline: 2px solid var(--clr-lig-pri);
 }
-
-/* .history button:hover,
-.history button:focus {
-  color: var(--clr-lig-pri);
-} */
-
 .history button i {
   font-size: 1.125 rem;
 }
@@ -169,6 +163,19 @@ nav ul .active a {
 
 .info article {
   padding-bottom: 1.2rem;
+}
+.info .hint {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.info .bullet {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background-color: var(--clr-dar-sec);
+  color: var(--clr-off-whi);
+  font-weight: 400;
 }
 
 .info .subtitle {
