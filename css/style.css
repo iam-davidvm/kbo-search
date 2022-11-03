@@ -11,6 +11,7 @@
   --clr-dar-sec: hsl(210, 32%, 28%);
   --clr-lig-pri: hsl(0, 84%, 64%);
   --clr-off-whi: hsl(255, 29%, 97%);
+  font-size: 18px;
 }
 
 body {
@@ -75,7 +76,7 @@ nav ul .active a {
 
 .search button {
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--clr-off-whi);
   border: 3px solid var(--clr-dar-pri);
   background-color: var(--clr-dar-pri);
