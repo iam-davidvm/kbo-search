@@ -2,23 +2,31 @@ const btnSearch = document.getElementById('btn-search');
 
 function searchPage(pageContent) {
   const regExp =
-    /(BE) [0-9]{4}.[0-9]{3}.[0-9]{3}|(BE)[0-9]{4}.[0-9]{3}.[0-9]{3}|(BE) [0-9]{4}[0-9]{3}[0-9]{3}|(BE)[0-9]{4}[0-9]{3}[0-9]{3}|(BE) [0-9]{4} [0-9]{3} [0-9]{3}|(BE)[0-9]{4} [0-9]{3} [0-9]{3}|[0-9]{4}.[0-9]{3}.[0-9]{3}/g;
+    /(BE) [0-1]{1}[0-9]{3}.[0-9]{3}.[0-9]{3}|(BE)[0-1]{1}[0-9]{3}.[0-9]{3}.[0-9]{3}|(BE) [0-1]{1}[0-9]{3}[0-9]{3}[0-9]{3}|(BE)[0-1]{1}[0-9]{3}[0-9]{3}[0-9]{3}|(BE) [0-1]{1}[0-9]{3} [0-9]{3} [0-9]{3}|(BE)[0-1]{1}[0-9]{3} [0-9]{3} [0-9]{3}|[0-1]{1}[0-9]{3}.[0-9]{3}.[0-9]{3}/g;
 
   return pageContent.match(regExp);
 }
 
 function cleanNumber(numbers) {
-  return numbers.map((number) =>
-    number.replaceAll('BE ', '').replaceAll(' ', '.').replaceAll('BE', '')
-  );
+  return numbers.map((number) => {
+    number = number
+      .replaceAll('BE ', '')
+      .replaceAll(' ', '.')
+      .replaceAll('BE', '');
+    if (number.indexOf('.') === -1) {
+      number =
+        number.slice(0, 4) + '.' + number.slice(4, 7) + '.' + number.slice(7);
+    }
+    return number;
+  });
 }
 
 function validateNumber(numbers) {
   return numbers.filter((number) => {
     number = number.replaceAll('.', '');
     if (
-      (number[0] === '0' || number[0] === '1') &&
-      97 - (parseInt(number.slice(0, 8)) % 97) === parseInt(number.slice(8))
+      97 - (parseInt(number.slice(0, 8)) % 97) ===
+      parseInt(number.slice(8))
     ) {
       return true;
     }
@@ -45,7 +53,6 @@ function renderMatches(queryStrings, matches, hasONnummer) {
 }
 
 function saveSearch(queryStrings, matches, hasONnummer) {
-  // const date = Date.now();
   const currentdate = new Date();
   const date =
     currentdate.getDate() +
